@@ -125,7 +125,7 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'onedark',
         component_separators = '|',
         section_separators = '',
@@ -200,6 +200,8 @@ vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
+
+--vim.o.foldmethod = 'indent'
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
