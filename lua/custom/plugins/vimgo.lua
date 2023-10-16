@@ -1,0 +1,15 @@
+return {
+  "fatih/vim-go",
+  -- version = "*",
+  -- dependencies = {
+  --   "nvim-lua/plenary.nvim",
+  --   "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+  --   "MunifTanjim/nui.nvim",
+  -- },
+  -- config = function ()
+  --   require('neo-tree').setup {}
+  --
+  --   vim.cmd([[nnoremap <silent> <S-Tab> :Neotree toggle<cr>]])
+  -- end,
+}
+

@@ -119,9 +119,9 @@ require('lazy').setup({
     --   vim.cmd.colorscheme 'onedark'
     -- end,
   },
-  { -- Theme inspired by Atom
+  {
     'sainnhe/gruvbox-material',
-    priority = 1000,
+    priority = 100,
     config = function()
       vim.cmd.colorscheme 'gruvbox-material'
     end,
@@ -200,7 +200,9 @@ require('lazy').setup({
 -- See `:help vim.o`
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
+vim.o.list = true
+vim.opt.listchars = { extends = "❯", precedes = "❮", nbsp = "␣", tab = "»·", eol = "¤", trail = "·" }
 
 -- Make line numbers default
 vim.wo.number = true
@@ -208,7 +210,15 @@ vim.wo.number = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
---vim.o.foldmethod = 'indent'
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldlevel = 99
+
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
+
+vim.o.wrap = false
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -297,7 +307,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim', 'terraform' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
