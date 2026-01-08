@@ -158,9 +158,9 @@ require('lazy').setup({
     --   vim.cmd.colorscheme 'onedark'
     -- end,
   },
-  { -- Theme inspired by Atom
+  {
     'sainnhe/gruvbox-material',
-    priority = 1000,
+    priority = 100,
     config = function()
       vim.cmd.colorscheme 'gruvbox-material'
     end,
@@ -242,7 +242,9 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
+vim.o.list = true
+vim.opt.listchars = { extends = "❯", precedes = "❮", nbsp = "␣", tab = "»·", eol = "¤", trail = "·" }
 
 -- Make line numbers default
 vim.wo.number = true
@@ -250,7 +252,15 @@ vim.wo.number = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
---vim.o.foldmethod = 'indent'
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldlevel = 99
+
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
+
+vim.o.wrap = false
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
